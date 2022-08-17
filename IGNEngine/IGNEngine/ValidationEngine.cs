@@ -15,11 +15,60 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>
 //#############################################################################
+using IGNEngine.ValidationRules;
 using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace IGNEngine
 {
     public class ValidationEngine
     {
+        private IDictionary<string, ValidationRuleChain> knownRules;
+
+        public ValidationEngine()
+        {
+            this.knownRules = new Dictionary<string, ValidationRuleChain>();
+        }
+
+        public string AddRuleChainFor(string validationTypeKey)
+        {
+            ValidationRuleChain chain = new ValidationRuleChain();
+            this.knownRules.Add(validationTypeKey, chain);
+            return chain.Id;
+        }
+
+        public void AddRuleFor(string validationTypeKey, ValidationRule rule)
+        {
+            this.knownRules.TryGetValue(validationTypeKey, out ValidationRuleChain chain);
+            if(chain != null)
+            {
+                chain.AddRule(rule);
+            }
+        }
+
+        public void RemoveLastRuleFor(string validationTypeKey)
+        {
+            this.knownRules.TryGetValue(validationTypeKey, out ValidationRuleChain chain);
+            if (chain != null)
+            {
+                chain.RemoveLastRule();
+            }
+        }
+
+        public void RemoveChainFor(string validationTypeKey)
+        {
+            this.knownRules.Remove(validationTypeKey);
+        }
+
+        public bool ValidateChain(string validationTypeKey, object data)
+        {
+            this.knownRules.TryGetValue(validationTypeKey, out ValidationRuleChain chain);
+            if (chain != null)
+            {
+                return chain.ValidateChain(data);
+            }
+            return false;
+        }
     }
 }
