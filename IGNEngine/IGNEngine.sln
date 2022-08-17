@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGNEngine", "IGNEngine\IGNEngine.csproj", "{E74093D6-1F29-4FA2-8310-D99BBBF66F4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IGNEngine", "IGNEngine\IGNEngine.csproj", "{E74093D6-1F29-4FA2-8310-D99BBBF66F4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5868DE0-1FD8-46A3-96E8-F4FF066D6BE6}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{03C8E3E7-209E-4EC4-9CB5-1BF2D4EA3E23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E74093D6-1F29-4FA2-8310-D99BBBF66F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E74093D6-1F29-4FA2-8310-D99BBBF66F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E74093D6-1F29-4FA2-8310-D99BBBF66F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C8E3E7-209E-4EC4-9CB5-1BF2D4EA3E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C8E3E7-209E-4EC4-9CB5-1BF2D4EA3E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C8E3E7-209E-4EC4-9CB5-1BF2D4EA3E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C8E3E7-209E-4EC4-9CB5-1BF2D4EA3E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
