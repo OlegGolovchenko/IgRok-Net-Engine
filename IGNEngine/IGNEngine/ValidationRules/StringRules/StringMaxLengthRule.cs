@@ -21,9 +21,8 @@ namespace IGNEngine.ValidationRules.StringRules
     public class StringMaxLengthRule : ValidationRule
     {
         private int length;
-        public StringMaxLengthRule(int length)
+        public StringMaxLengthRule()
         {
-            this.length = length;
         }
         public override bool IsValid(object data)
         {
@@ -32,6 +31,11 @@ namespace IGNEngine.ValidationRules.StringRules
                 return ((string)data).Length <= length;
             }
             return false;
+        }
+
+        internal override void Init(object parameter)
+        {
+            this.length = (int)parameter;
         }
     }
 }

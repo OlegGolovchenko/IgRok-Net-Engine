@@ -24,8 +24,8 @@ namespace IGNEngine.ValidationRules.Chains
     {
         public StringStartsOrEndsWithRuleChain(string characters) : base()
         {
-            AddRule(new StringStartsWithRule(characters));
-            AddRule(new StringEndsWithRule(characters));
+            AddRule<StringStartsWithRule>(characters);
+            AddRule<StringEndsWithRule>(characters);
         }
     }
 }

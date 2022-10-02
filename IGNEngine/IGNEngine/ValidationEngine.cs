@@ -16,6 +16,7 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>
 //#############################################################################
 using IGNEngine.ValidationRules;
+using IGNEngine.ValidationRules.StringRules;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -38,12 +39,19 @@ namespace IGNEngine
             return chain.Id;
         }
 
-        public void AddRuleFor(string validationTypeKey, ValidationRule rule)
+        public string AddRuleChainOfTypeFor<T>(string validationTypeKey) where T : ValidationRuleChain, new()
+        {
+            ValidationRuleChain chain = new T();
+            this.knownRules.Add(validationTypeKey, chain);
+            return chain.Id;
+        }
+
+        public void AddRuleFor<T>(string validationTypeKey, object parameter = null) where T: ValidationRule, new()
         {
             this.knownRules.TryGetValue(validationTypeKey, out ValidationRuleChain chain);
             if(chain != null)
             {
-                chain.AddRule(rule);
+                chain.AddRule<T>(parameter);
             }
         }
 

@@ -21,9 +21,8 @@ namespace IGNEngine.ValidationRules.StringRules
     public class StringStartsWithRule : ValidationRule
     {
         private string characters;
-        public StringStartsWithRule(string characters)
+        public StringStartsWithRule()
         {
-            this.characters = characters;
         }
 
         public override bool IsValid(object data)
@@ -33,6 +32,11 @@ namespace IGNEngine.ValidationRules.StringRules
                 return ((string)data).StartsWith(characters);
             }
             return false;
+        }
+
+        internal override void Init(object parameter)
+        {
+            this.characters = (string)parameter;
         }
     }
 }

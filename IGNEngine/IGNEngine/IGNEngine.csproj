@@ -4,4 +4,8 @@
     <TargetFrameworks>netcoreapp31;net40;netstandard20</TargetFrameworks>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IgnActivator" Version="2.0.0" />
+  </ItemGroup>
+
 </Project>

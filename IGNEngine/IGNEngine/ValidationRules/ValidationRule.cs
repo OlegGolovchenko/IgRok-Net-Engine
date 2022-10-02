@@ -16,15 +16,21 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>
 //#############################################################################
 
-using System.Collections.Generic;
-
 namespace IGNEngine.ValidationRules
 {
     public class ValidationRule
     {
+        public ValidationRule()
+        {
+
+        }
         public virtual bool IsValid(object data)
         {
             return true;
+        }
+
+        internal virtual void Init(object parameter)
+        {
         }
     }
 }

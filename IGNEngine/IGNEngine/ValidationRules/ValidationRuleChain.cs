@@ -62,8 +62,10 @@ namespace IGNEngine.ValidationRules
             Id = Guid.NewGuid().ToString();
         }
 
-        public void AddRule(ValidationRule rule)
+        public void AddRule<T>(object parameter) where T : ValidationRule, new()
         {
+            ValidationRule rule = new T();
+            rule.Init(parameter);
             this.rules.Add(rule);
         }
 

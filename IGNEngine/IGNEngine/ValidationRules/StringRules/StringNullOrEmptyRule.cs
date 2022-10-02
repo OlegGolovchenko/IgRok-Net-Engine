@@ -20,6 +20,10 @@ namespace IGNEngine.ValidationRules.StringRules
 {
     public class StringNullOrEmptyRule : ValidationRule
     {
+        public StringNullOrEmptyRule()
+        {
+        }
+
         public override bool IsValid(object data)
         {
             if (data is string)
@@ -27,6 +31,10 @@ namespace IGNEngine.ValidationRules.StringRules
                 return !string.IsNullOrWhiteSpace((string)data);
             }
             return false;
+        }
+
+        internal override void Init(object parameter)
+        {
         }
     }
 }

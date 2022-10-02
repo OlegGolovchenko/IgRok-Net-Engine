@@ -21,9 +21,8 @@ namespace IGNEngine.ValidationRules.StringRules
     public class StringEndsWithRule : ValidationRule
     {
         private string characters;
-        public StringEndsWithRule(string characters)
+        public StringEndsWithRule()
         {
-            this.characters = characters;
         }
 
         public override bool IsValid(object data)
@@ -33,6 +32,11 @@ namespace IGNEngine.ValidationRules.StringRules
                 return ((string)data).EndsWith(characters);
             }
             return false;
+        }
+
+        internal override void Init(object parameter)
+        {
+            this.characters = (string)parameter;
         }
     }
 }

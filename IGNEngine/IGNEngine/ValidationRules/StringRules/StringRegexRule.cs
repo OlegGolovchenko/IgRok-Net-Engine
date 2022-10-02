@@ -24,9 +24,8 @@ namespace IGNEngine.ValidationRules.StringRules
     {
         private string regex;
 
-        public StringRegexRule(string regex)
+        public StringRegexRule()
         {
-            this.regex = regex;
         }
 
         public override bool IsValid(object data)
@@ -36,6 +35,11 @@ namespace IGNEngine.ValidationRules.StringRules
                 return Regex.IsMatch((string)data, regex);
             }
             return false;
+        }
+
+        internal override void Init(object parameter)
+        {
+            this.regex = (string)parameter;
         }
     }
 }
